@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template
 import app, helper
 
-app = Flask(__name__)
+flask_app = Flask(__name__)
 
 ASSET_DIR = "" # where repo data will be stored
 ADMIN_PASSWD = "1234" # get from environment variable
@@ -10,11 +10,11 @@ ADMIN_PASSWD = "1234" # get from environment variable
 def main():
 	if request.method == "POST":
 		message = request.form["message"]
-		res = app.classify(message)
+		res = app.get_sentiment(message)
 		return render_template("result.html", result=res)
 	return render_template("index.html")
 
 
 
 if __name__ == "__main__":
-	app.run(host="0.0.0.0", port=8000, debug=True)
+	flask_app.run(host="0.0.0.0", port=8000, debug=True)

@@ -1,9 +1,8 @@
 from transformers import pipeline
 
-def classify(text):
+def get_sentiment(text):
 	classifier = pipeline("sentiment-analysis")
 	res = classifier(text)
-
 	return res
 
 if __name__ == "__main__":
