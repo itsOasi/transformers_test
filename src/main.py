@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 import app, helper
 
 app = Flask(__name__)
@@ -11,8 +11,8 @@ def main():
 	if request.method == "POST":
 		message = request.form["message"]
 		res = app.classify(message)
-		return helper.read_file("./result.html")
-	return helper.read_file("./index.html")
+		return render_template("result.html", result=res)
+	return render_template("index.html")
 
 
 
