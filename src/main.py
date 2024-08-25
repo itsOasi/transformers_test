@@ -11,8 +11,8 @@ def main():
 	if request.method == "POST":
 		message = request.form["message"]
 		res = app.classify(message)
-		return helper.load_file("result.html")
-	return helper.load_file("index.html")
+		return helper.read_file("result.html")
+	return helper.read_file("index.html")
 
 
 
