@@ -1,6 +1,7 @@
 FROM pytorch/pytorch:latest
 
 RUN pip install transformers
+RUN pip install flask
 
 ADD /src /src
 
